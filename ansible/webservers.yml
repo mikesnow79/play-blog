@@ -2,3 +2,5 @@
   roles:
     - common-web
     - web-app
+  environment:
+    DJANGO_SECRET_KEY: "{{django_secret_key}}"

@@ -20,3 +20,15 @@
 - name: TODO copy django secret fake to postactivate script
   debug:
     msg: "Currently manually sourcing the secret key locally"
+
+- name: Run django migrate on app
+  django_manage:
+    command: migrate
+    app_path: "{{webapp_install_dir}}"
+    virtualenv: "{{user_venv_dir}}"
+
+- name: Run django collectstatic on app
+  django_manage:
+    command: collectstatic
+    app_path: "{{webapp_install_dir}}"
+    virtualenv: "{{user_venv_dir}}"
