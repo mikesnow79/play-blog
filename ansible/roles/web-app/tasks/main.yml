@@ -1,0 +1,6 @@
+---
+# tasks file for web-app django setup
+
+- name: Begin Message
+  debug:
+    msg: "Beginning Django dependency Playbook"

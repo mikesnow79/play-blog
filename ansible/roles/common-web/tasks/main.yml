@@ -19,3 +19,17 @@
   file:
     path: "{{master_app_dir}}"
     state: directory
+
+#- name: Ensure python3.6 is installed
+#  apt:
+#    name: python3.6
+#    state: latest
+#    update_cache: yes
+#    cache_valid_time: 3600
+#  become: true
+
+- name: Create app python virtualenv
+  pip:
+    name: ipython
+    virtualenv: "{{user_venv_dir}}"
+    virtualenv_python: "python{{app_python_version}}"
