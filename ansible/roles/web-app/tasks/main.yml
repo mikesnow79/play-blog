@@ -16,3 +16,7 @@
   pip:
     requirements: "{{webapp_install_dir}}/requirements.txt"
     virtualenv: "{{user_venv_dir}}"
+
+- name: TODO copy django secret fake to postactivate script
+  debug:
+    msg: "Currently manually sourcing the secret key locally"
