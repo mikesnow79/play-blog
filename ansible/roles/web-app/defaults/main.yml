@@ -1,2 +1,6 @@
 ---
 # defaults file for web-app
+github_repo_user: mikesnow79
+webapp_github_ssh_uri: "git@github.com:{{github_repo_user}}/{{webapp_repo_name}}.git"
+webapp_repo_name: play-blog-backend
+webapp_install_dir: "{{master_app_dir}}/{{webapp_repo_name}}"

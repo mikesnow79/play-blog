@@ -4,3 +4,15 @@
 - name: Begin Message
   debug:
     msg: "Beginning Django dependency Playbook"
+
+- name: clone git repo
+  git:
+    repo: "{{webapp_github_ssh_uri}}"
+    dest: "{{webapp_install_dir}}"
+    clone: yes
+    update: yes
+
+- name: install python requirements
+  pip:
+    requirements: "{{webapp_install_dir}}/requirements.txt"
+    virtualenv: "{{user_venv_dir}}"

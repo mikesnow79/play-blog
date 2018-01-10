@@ -5,3 +5,4 @@ app_python_version: 3.6
 app_python_exe_name: "/usr/bin/python{{app_python_version}}"
 user_base_venv_dir: "{{ansible_user_dir}}/.virtualenvs"
 user_venv_dir: "{{user_base_venv_dir}}/{{app_venv_name}}"
+django_secret_key: jerrygarcia
