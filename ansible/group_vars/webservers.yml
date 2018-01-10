@@ -1,0 +1,2 @@
+app_name: snowblog
+master_app_dir: "{{ansible_user_dir}}/{{app_name}}"

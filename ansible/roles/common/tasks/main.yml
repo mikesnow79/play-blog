@@ -1,13 +1,21 @@
 ---
 # tasks file for common
 
-#- name: Update apt cache
+#- name: Install cmatrix
 #  apt:
 #    update_cache: yes
+#    name: cmatrix
 #  become: true
 
-- name: Install cmatrix
-  apt:
-    update_cache: yes
-    name: cmatrix
-  become: true
+- name: Begin Message
+  debug:
+    msg: "Beginning Main Site Playbook"
+
+- name: Set App Name
+  debug:
+    msg: "Appname is {{ app_name }}"
+
+- name: create master app directory
+  file:
+    path: "{{master_app_dir}}"
+    state: directory
