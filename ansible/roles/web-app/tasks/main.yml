@@ -11,7 +11,7 @@
     dest: "{{webapp_install_dir}}"
     clone: yes
     update: yes
-    force: yes
+#    force: yes
 
 - name: clone front-end repo
   git:
@@ -19,7 +19,7 @@
     dest: "{{frontend_install_dir}}"
     clone: yes
     update: yes
-    force: yes
+#    force: yes
 
 - name: install python requirements
   pip:
