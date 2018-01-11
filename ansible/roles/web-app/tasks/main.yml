@@ -43,6 +43,16 @@
     insertafter: '^#Listen '
     line: '{{fronted_config_file_entry}}'
 
+- name: install npm dependencies
+  shell: npm install
+  args:
+    chdir: "{{frontend_install_dir}}"
+
+- name: run npm run build in dest frontend
+  shell: npm run build
+  args:
+    chdir: "{{frontend_install_dir}}"
+
 - name: Run django collectstatic on app
   django_manage:
     command: collectstatic
