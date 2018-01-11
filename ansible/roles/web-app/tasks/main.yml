@@ -5,12 +5,21 @@
   debug:
     msg: "Beginning Django dependency Playbook"
 
-- name: clone git repo
+- name: clone django git repo
   git:
     repo: "{{webapp_github_ssh_uri}}"
     dest: "{{webapp_install_dir}}"
     clone: yes
     update: yes
+    force: yes
+
+- name: clone front-end repo
+  git:
+    repo: "{{frontend_github_ssh_uri}}"
+    dest: "{{frontend_install_dir}}"
+    clone: yes
+    update: yes
+    force: yes
 
 - name: install python requirements
   pip:
@@ -26,6 +35,13 @@
     command: migrate
     app_path: "{{webapp_install_dir}}"
     virtualenv: "{{user_venv_dir}}"
+
+- name: Add backend_dest_Dir to config
+  lineinfile:
+    path: "{{webapp_local_conf_file}}"
+    regexp: '^Listen '
+    insertafter: '^#Listen '
+    line: '{{fronted_config_file_entry}}'
 
 - name: Run django collectstatic on app
   django_manage:
